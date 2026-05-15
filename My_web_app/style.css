@@ -1,0 +1,278 @@
+:root {
+    --bg-color: #f6f1e6; 
+    --card-bg: #f6f1e6;       
+    --primary-brown: #4b3a2f; 
+    --accent-brown: #8b5e3c;  
+    --gold: #c49a31;          
+    --shadow-color: rgba(75, 58, 47, 0.2);
+}
+
+html {
+    scroll-behavior: smooth; 
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--primary-brown);
+    font-family: 'Georgia', serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+/* ЛОГОТИП */
+.navbar-brand-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px; 
+}
+
+.navbar-logo {
+    height: 70px;  
+    width: auto;
+    filter: sepia(20%); 
+    transition: transform 0.3s ease;
+}
+
+.navbar-logo:hover {
+    transform: rotate(-5deg) scale(1.05);
+}
+
+.custom-navbar .logo-text {
+    font-size: 1.5rem !important; 
+    margin-bottom: 0;
+    line-height: 1.2;
+}
+
+.custom-navbar .italic-text {
+    font-size: 0.85rem;
+    margin-top: 0;
+}
+
+
+/* 2. Навігаційна панель (Navbar) */
+.custom-navbar {
+    background-color: var(--card-bg);
+    border-bottom: 2px solid var(--primary-brown);
+    padding: 0.5rem 0; 
+}
+
+.nav-link {
+    color: var(--primary-brown) !important;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: var(--accent-brown) !important;
+    text-decoration: underline;
+}
+
+/* 3. Головний екран (Hero Section) */
+.hero-section {
+    height: 85vh;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                url('images/background.jpg'); 
+    background-size: cover;
+    background-position: center;
+    color: #f6f1e6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.hero-content {
+    border: 1px solid rgba(246, 241, 230, 0.3);
+    backdrop-filter: blur(3px);
+    padding: 3rem;
+    max-width: 800px;
+    text-align: center;
+}
+
+.btn-retro {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 15px 40px;
+    background-color: var(--gold);
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 2px;
+    border: 2px solid #8e6f24;
+    transition: all 0.3s ease;
+}
+
+.btn-retro:hover {
+    background-color: var(--primary-brown);
+    color: #dcd7ca;
+    transform: scale(1.05);
+}
+
+/* 4. Заголовки та Секції */
+.retro-title {
+    font-family: 'Playfair Display', serif;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    border-bottom: 2px solid var(--primary-brown);
+    display: inline-block;
+    padding-bottom: 8px;
+    margin-bottom: 40px;
+}
+
+#timeline-anchor {
+    scroll-margin-top: 160px; 
+}
+
+.modal-content.card-retro {
+    background-color: var(--card-bg);
+    border: 3px solid var(--primary-brown);
+    box-shadow: 12px 12px 0px var(--primary-brown) !important;
+    border-radius: 0;
+}
+
+.user-input {
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 2px solid var(--primary-brown);
+    border-radius: 0;
+    color: var(--primary-brown);
+}
+
+.user-input:focus {
+    background-color: #fff;
+    border-color: var(--gold);
+    box-shadow: none;
+}
+
+.recipe-card {
+    background: #fffcf5;
+    border: 1px solid var(--primary-brown);
+    padding: 1.5rem;
+    height: 100%;
+    /*transition: all 0.3s ease;*/
+}
+
+.recipe-badge {
+    background-color: var(--primary-brown);
+    color: #fff;
+    font-size: 0.7rem;
+    padding: 3px 8px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.ingredients-list {
+    font-size: 0.9rem;
+    color: var(--accent-brown);
+    border-left: 2px solid var(--gold);
+    padding-left: 10px;
+    margin: 10px 0;
+}
+
+/* 5. Повзунок */
+.timeline-container {
+    max-width: 850px;
+    margin: 20px auto;
+    padding: 10px;
+}
+
+.timeline-track {
+    background: #b5b5b5; 
+    border: 3px solid #7d7d7d; 
+    border-radius: 50px; 
+    padding: 5px 20px;
+    position: relative;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.2);
+    height: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.custom-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    background: transparent;
+    outline: none;
+    position: relative;
+    z-index: 2;
+}
+
+.custom-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 15px;
+    height: 30px;
+    background: #d1d1d1;
+    border: 2px solid #5a5a5a;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.slider-segments {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    width: calc(100% - 40px);
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.slider-segments span {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #4a4a4a;
+    font-weight: bold;
+}
+
+/* 6. Картки */
+.card-retro {
+    background-color: var(--card-bg);
+    border: 2px solid var(--primary-brown);
+    border-radius: 0; 
+    box-shadow: 6px 6px 0px var(--primary-brown);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.card-retro:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 10px 10px 0px var(--accent-brown);
+}
+
+.card-retro img {
+    filter: sepia(30%) contrast(90%);
+    border-bottom: 2px solid var(--primary-brown);
+    height: 300px;
+    object-fit: cover;
+}
+
+.border-brown {
+    border-bottom: 2px solid var(--primary-brown);
+}
+
+/* 7. Адаптивність */
+@media (max-width: 991.98px) {
+    .navbar-logo { height: 50px; }
+    .logo-text { font-size: 1.2rem !important; }
+}
+
+@media (max-width: 575.98px) {
+    .hero-section { height: 60vh; }
+    .slider-segments span { font-size: 10px; }
+}
+
+/* 8. Футер */
+footer {
+    border-top: 2px solid var(--primary-brown);
+    margin-top: 50px;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 0.9rem;
+    background-color: var(--card-bg);
+}
