@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Crazy Chef</title>
+    <link rel="stylesheet" href="game.css">
+</head>
+<body>
+    <div id="game-container">
+        <a href="index.html" style="color: #0ff; text-decoration: none; margin-top: 15px; font-weight: bold; border: 1px solid #0ff; padding: 5px 15px; border-radius: 5px; font-family: 'Courier New', Courier, monospace;">🔙 На головну сторінку</a>
+        
+        <div id="game-ui">
+            <h1>👨‍🍳 Crazy Chef</h1>
+            <div id="top-stats">
+                <div>Level: <span id="level-display">1</span></div>
+                <div>Ingredients: <span id="score-display">0</span></div>
+                <div id="lives-container">Lives: <span id="lives-display">❤️❤️❤️</span></div>
+            </div>
+        </div>
+        
+        <canvas id="gameCanvas"></canvas>
+
+        <div id="mobile-controls">
+            <div class="control-row">
+                <button id="btn-up" class="dpad-btn">W</button>
+            </div>
+            <div class="control-row">
+                <button id="btn-left" class="dpad-btn">A</button>
+                <button id="btn-down" class="dpad-btn">S</button>
+                <button id="btn-right" class="dpad-btn">D</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="win-screen" class="screen">
+        <h2 style="color: #0f0; text-shadow: 0 0 20px #0f0;">ІНГРЕДІЄНТИ ЗІБРАНО!</h2>
+        <div class="recipe-box">
+            <h3 id="recipe-title"></h3>
+            <p id="recipe-text"></p>
+        </div>
+        <button id="next-level-btn" style="color: #0f0; border-color: #0f0;">👉 Готувати далі</button>
+    </div>
+
+    <div id="final-win-screen" class="screen">
+        <h2 style="color: #0ff; text-shadow: 0 0 20px #0ff;">ЛЕГЕНДА КУЛІНАРІЇ!</h2>
+        <div class="recipe-box" style="border-color: #0ff;">
+            <h3 id="final-recipe-title" style="color: #ff0;"></h3>
+            <p id="final-recipe-text"></p>
+        </div>
+        <button onclick="location.reload()" style="color: #0ff; border-color: #0ff;">🔄 Зіграти ще раз</button>
+        <button onclick="window.location.href='index.html'" style="color: #fff; border-color: #fff; margin-top: 10px;">🏠 Повернутися на сайт</button>
+    </div>
+
+    <div id="lose-screen" class="screen">
+        <h2 style="color: #f00; text-shadow: 0 0 20px #f00;">КУХНЯ ЗГОРІЛА!</h2>
+        <p>Ти втратив усі життя.</p>
+        <button onclick="location.reload()" style="color: #f00; border-color: #f00;">🔄 Спробувати ще раз</button>
+        <button onclick="window.location.href='index.html'" style="color: #fff; border-color: #fff; margin-top: 10px;">🏠 Повернутися на сайт</button>
+    </div>
+
+    <script src="controls.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>

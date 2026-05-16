@@ -1,0 +1,689 @@
+/* =========================================================
+   0. ЗМІННІ ТА БАЗОВІ СТИЛІ
+   Тут задані основні кольори сайту та загальні стилі сторінки.
+   ========================================================= */
+
+:root {
+    --bg-color: #f6f1e6;
+    --card-bg: #f6f1e6;
+    --primary-brown: #4b3a2f;
+    --accent-brown: #8b5e3c;
+    --gold: #c49a31;
+    --shadow-color: rgba(75, 58, 47, 0.2);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--primary-brown);
+    font-family: "Georgia", serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+/* =========================================================
+   1. ЛОГОТИП І НАВІГАЦІЙНА ПАНЕЛЬ
+   Відповідає за верхню частину сторінки: логотип, назву,
+   меню, поле введення імені користувача.
+   ========================================================= */
+
+/* Логотип і назва сайту */
+.navbar-brand-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.navbar-logo {
+    height: 70px;
+    width: auto;
+    filter: sepia(20%);
+    transition: transform 0.3s ease;
+}
+
+.navbar-logo:hover {
+    transform: rotate(-5deg) scale(1.05);
+}
+
+.custom-navbar .logo-text {
+    font-size: 1.5rem !important;
+    margin-bottom: 0;
+    line-height: 1.2;
+}
+
+.custom-navbar .italic-text {
+    font-size: 0.85rem;
+    margin-top: 0;
+}
+
+/* Navbar */
+.custom-navbar {
+    background-color: var(--card-bg);
+    border-bottom: 2px solid var(--primary-brown);
+    padding: 0.5rem 0;
+}
+
+.nav-link {
+    color: var(--primary-brown) !important;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    margin: 0 10px;
+    transition: color 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.nav-link:hover {
+    color: var(--accent-brown) !important;
+    text-decoration: underline;
+}
+.nav-icon {
+    margin-right: 6px;
+    color: var(--accent-brown);
+    font-size: 0.95rem;
+    vertical-align: middle;
+}
+
+
+/* =========================================================
+   2. ГОЛОВНИЙ ЕКРАН
+   Перший великий екран із фоновим зображенням, заголовком
+   і кнопкою переходу до меню.
+   ========================================================= */
+
+.hero-section {
+    height: 85vh;
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+        url("images/background.jpg");
+    background-size: cover;
+    background-position: center;
+    color: #f6f1e6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.hero-content {
+    border: 1px solid rgba(246, 241, 230, 0.3);
+    backdrop-filter: blur(3px);
+    padding: 3rem;
+    max-width: 800px;
+    text-align: center;
+}
+
+/* Кнопка на головному екрані */
+.btn-retro {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 15px 40px;
+    background-color: var(--gold);
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 2px;
+    border: 2px solid #8e6f24;
+    transition: all 0.3s ease;
+}
+
+.btn-retro:hover {
+    background-color: var(--primary-brown);
+    color: #dcd7ca;
+    transform: scale(1.05);
+}
+
+/* =========================================================
+   3. ЗАГОЛОВКИ, ФОРМИ, МОДАЛЬНІ ВІКНА ТА ЕЛЕМЕНТИ КОНТЕНТУ
+   Стилі для заголовків секцій, полів введення, модального
+   вікна книги рецептів, бейджів і списку інгредієнтів.
+   ========================================================= */
+
+/* Заголовки секцій */
+.retro-title {
+    font-family: Georgia, serif;
+    font-weight: 400;
+    font-size: 1.85rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: var(--primary-brown);
+    border-bottom: 2px solid var(--primary-brown);
+    display: inline-block;
+    padding-bottom: 8px;
+    margin-bottom: 40px;
+}
+/* Відступ при переході по якорю, щоб sticky-navbar не перекривав секцію */
+#timeline-anchor {
+    scroll-margin-top: 160px;
+}
+
+/* Модальне вікно */
+#recipeModal .modal-dialog {
+    max-width: 1140px;
+}
+
+.modal-content.card-retro {
+    background-color: var(--card-bg);
+    border: 3px solid var(--primary-brown);
+    box-shadow: 12px 12px 0 var(--primary-brown) !important;
+    border-radius: 0;
+}
+
+/* Поля введення та select */
+.user-input {
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 2px solid var(--primary-brown);
+    border-radius: 0;
+    color: var(--primary-brown);
+}
+
+.user-input:focus {
+    background-color: #fff;
+    border-color: var(--gold);
+    box-shadow: none;
+}
+
+/* Картки рецептів у модальному вікні */
+.recipe-card {
+    background: #fffcf5;
+    border: 1px solid var(--primary-brown);
+    padding: 1.5rem;
+    height: 100%;
+}
+/* Назви рецептів у модальному вікні */
+#recipeModal .recipe-card h2,
+#recipeModal .recipe-card h3,
+#recipeModal .recipe-card h4,
+#recipeModal .recipe-card h5,
+#recipeModal .recipe-card .card-title,
+#recipeModal .recipe-card .logo-text {
+    font-family: Georgia, serif !important;
+    font-size: 1.3rem !important;
+    font-weight: 600 !important;
+    line-height: 1.25;
+    margin-bottom: 12px;
+    color: var(--primary-brown);
+}
+
+/* Якщо на заголовок впливає Bootstrap fw-bold */
+#recipeModal .recipe-card .fw-bold {
+    font-weight: 600 !important;
+}
+/* Бейджі: країна та десятиліття */
+.recipe-badge {
+    background-color: var(--primary-brown);
+    color: #fff;
+    font-size: 0.7rem;
+    padding: 3px 8px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* Список інгредієнтів */
+.ingredients-list {
+    font-size: 0.9rem;
+    color: var(--accent-brown);
+    border-left: 2px solid var(--gold);
+    padding-left: 10px;
+    margin: 10px 0;
+}
+/* =========================================================
+   4. ПОВЗУНОК ВИБОРУ ЕПОХИ
+   Тут оформлено slider для вибору десятиліття.
+   JavaScript змінює активний рік і додає клас active-year.
+   ========================================================= */
+
+.timeline-container {
+    max-width: 900px;
+    margin: 20px auto 10px;
+    padding: 16px 26px 18px;
+    border-radius: 999px;
+    background: rgba(255, 252, 245, 0.68);
+    border: 1px solid rgba(75, 58, 47, 0.18);
+    box-shadow: 0 12px 28px rgba(75, 58, 47, 0.08);
+    animation: fadeUp 0.9s ease forwards;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-container:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 35px rgba(75, 58, 47, 0.13);
+}
+
+.timeline-track {
+    position: relative;
+    height: 64px;
+    padding: 0 24px;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+/* Основна лінія повзунка */
+.custom-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 8px;
+    border-radius: 999px;
+    background: linear-gradient(90deg,
+            var(--primary-brown) 0%,
+            #5d4738 25%,
+            #73543a 50%,
+            var(--accent-brown) 72%,
+            #a97a38 88%,
+            var(--gold) 100%);
+    outline: none;
+    cursor: pointer;
+    position: absolute;
+    left: 24px;
+    top: 18px;
+    width: calc(100% - 48px);
+    z-index: 3;
+    box-shadow: inset 0 2px 4px rgba(75, 58, 47, 0.22);
+}
+
+/* Бігунок повзунка для Chrome / Edge / Safari */
+.custom-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: #f6f1e6;
+    border: 4px solid #5d4738;
+    box-shadow:
+        0 0 0 10px rgba(196, 154, 49, 0.14),
+        0 6px 16px rgba(75, 58, 47, 0.28);
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Бігунок повзунка для Firefox */
+.custom-slider::-moz-range-thumb {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: #f6f1e6;
+    border: 4px solid #5d4738;
+    box-shadow:
+        0 0 0 10px rgba(196, 154, 49, 0.14),
+        0 6px 16px rgba(75, 58, 47, 0.28);
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Анімація бігунка при наведенні */
+.custom-slider:hover::-webkit-slider-thumb,
+.custom-slider:focus::-webkit-slider-thumb {
+    transform: scale(1.18);
+    box-shadow:
+        0 0 0 8px rgba(196, 154, 49, 0.16),
+        0 6px 18px rgba(75, 58, 47, 0.4);
+}
+
+.custom-slider:hover::-moz-range-thumb,
+.custom-slider:focus::-moz-range-thumb {
+    transform: scale(1.18);
+    box-shadow:
+        0 0 0 8px rgba(196, 154, 49, 0.16),
+        0 6px 18px rgba(75, 58, 47, 0.4);
+}
+
+/* Підписи років під повзунком */
+.slider-segments {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    left: 24px;
+    top: 42px;
+    width: calc(100% - 48px);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.slider-segments span {
+    font-family: Georgia, serif;
+    font-size: 1rem;
+    color: var(--accent-brown);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+    transition: color 0.25s ease, transform 0.25s ease, font-weight 0.25s ease;
+}
+
+/* Активний підпис вибраного десятиліття */
+.slider-segments span.active-year {
+    color: var(--primary-brown);
+    font-weight: 700;
+    transform: translateY(-3px) scale(1.08);
+}
+
+/* =========================================================
+   5. КАРТКИ КАТАЛОГУ
+   Оформлення карток страв: рамка, тінь, hover-ефект,
+   зображення та декоративні лінії.
+   ========================================================= */
+
+.card-retro {
+    background-color: var(--card-bg);
+    border: 2px solid var(--primary-brown);
+    border-radius: 0;
+    box-shadow: 6px 6px 0 var(--primary-brown);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+.card-retro:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 10px 10px 0 var(--accent-brown);
+}
+
+.card-retro img {
+    filter: sepia(30%) contrast(90%);
+    border-bottom: 2px solid var(--primary-brown);
+    height: 300px;
+    object-fit: cover;
+}
+
+.border-brown {
+    border-bottom: 2px solid var(--primary-brown);
+}
+
+/* =========================================================
+   6. АДАПТИВНІСТЬ
+   У PDF вказано 5 діапазонів ширини екрана.
+   Тут для кожного діапазону задані окремі правила.
+   ========================================================= */
+
+/* 6.1. <576px: телефони */
+@media (max-width: 575.98px) {
+    .navbar-brand-wrapper {
+        gap: 8px;
+    }
+
+    .navbar-logo {
+        height: 54px;
+    }
+
+    .custom-navbar .logo-text {
+        font-size: 1.25rem !important;
+    }
+
+    .custom-navbar .italic-text {
+        font-size: 0.75rem;
+    }
+
+    .nav-link {
+        text-align: center;
+        margin: 6px 0;
+    }
+
+    .user-input {
+        width: 100%;
+        margin-top: 8px;
+    }
+
+    .hero-section {
+        height: 70vh;
+        margin-bottom: 30px;
+    }
+
+    .hero-content {
+        padding: 2rem !important;
+    }
+
+    .hero-content h1 {
+        font-size: 2.2rem;
+        line-height: 1.1;
+    }
+
+    .hero-content .lead {
+        font-size: 1rem;
+    }
+
+    .btn-retro {
+        padding: 12px 24px;
+        font-size: 0.85rem;
+    }
+
+    .retro-title {
+        font-size: 1.5rem;
+        letter-spacing: 2px;
+    }
+
+    .timeline-container {
+        padding: 14px 10px 18px;
+        border-radius: 24px;
+    }
+
+    .timeline-track {
+        height: 60px;
+        padding: 0 8px;
+    }
+
+    .custom-slider {
+        left: 8px;
+        width: calc(100% - 16px);
+    }
+
+    .slider-segments {
+        left: 8px;
+        width: calc(100% - 16px);
+        top: 42px;
+    }
+
+    .slider-segments span {
+        font-size: 0.75rem;
+    }
+
+    .card-retro img {
+        height: 220px;
+    }
+
+    footer {
+        font-size: 0.85rem;
+    }
+}
+
+/* 6.2. ≥576px та <768px: великі телефони / маленькі планшети */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .navbar-logo {
+        height: 60px;
+    }
+
+    .custom-navbar .logo-text {
+        font-size: 1.35rem !important;
+    }
+
+    .nav-link {
+        text-align: center;
+        margin: 6px 0;
+    }
+
+    .hero-section {
+        height: 75vh;
+    }
+
+    .hero-content h1 {
+        font-size: 2.8rem;
+    }
+
+    .card-retro img {
+        height: 240px;
+    }
+
+    .footer-authors-simple {
+        align-items: center;
+    }
+}
+
+/* 6.3. ≥768px та <992px: планшети */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .navbar-logo {
+        height: 64px;
+    }
+
+    .nav-link {
+        text-align: center;
+        margin: 7px 0;
+    }
+
+    .hero-section {
+        height: 78vh;
+    }
+
+    .hero-content h1 {
+        font-size: 3.4rem;
+    }
+
+    .card-retro img {
+        height: 260px;
+    }
+
+    .footer-authors-simple {
+        align-items: center;
+    }
+}
+
+/* 6.4. ≥992px та <1200px: ноутбуки */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .navbar-logo {
+        height: 66px;
+    }
+
+    .nav-link {
+        font-size: 0.85rem;
+        margin: 0 6px;
+    }
+
+    .hero-content h1 {
+        font-size: 4rem;
+    }
+
+    .card-retro img {
+        height: 280px;
+    }
+}
+
+/* 6.5. ≥1200px: великі екрани */
+@media (min-width: 1200px) {
+    .hero-content h1 {
+        font-size: 4rem;
+    }
+
+    .card-retro img {
+        height: 300px;
+    }
+
+    .timeline-container {
+        max-width: 900px;
+    }
+}
+
+/* =========================================================
+   7. ФУТЕР
+   Нижня частина сторінки: опис проєкту, розробники,
+   копірайт і навчальна інформація.
+   ========================================================= */
+
+footer {
+    border-top: 2px solid var(--primary-brown);
+    margin-top: 50px;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 0.9rem;
+    background-color: var(--card-bg);
+}
+
+/* Колонка з розробниками */
+.footer-dev-col {
+    align-self: flex-start;
+}
+
+.footer-authors-simple {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-end;
+}
+
+.footer-authors-simple p {
+    margin: 0;
+    color: var(--accent-brown);
+    font-weight: 500;
+    font-size: 1.15rem;
+    line-height: 1.35;
+    transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.footer-authors-simple p:hover {
+    color: var(--primary-brown);
+    transform: translateX(-4px);
+}
+
+@media (max-width: 991.98px) {
+    .footer-authors-simple {
+        align-items: center;
+    }
+
+    .footer-dev-col {
+        text-align: center;
+    }
+}
+
+/* =========================================================
+   8. АНІМАЦІЇ
+   Легкі анімації появи блоків, щоб сайт не виглядав статичним.
+   ========================================================= */
+
+/* Плавна поява знизу */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(28px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* М’яка поява через збільшення */
+@keyframes softAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Анімація головного блоку */
+.hero-content {
+    animation: fadeUp 1s ease forwards;
+}
+
+/* Анімація заголовка вибору епохи */
+.retro-title {
+    animation: fadeUp 0.8s ease forwards;
+}
+
+
+
+/* Анімація карток рецептів у модальному вікні */
+.recipe-card {
+    animation: fadeUp 0.7s ease both;
+}
+
+/* Анімація футера */
+.footer-retro {
+    animation: fadeUp 0.9s ease both;
+}
